@@ -7,106 +7,106 @@
   <param name="scale_linear" value="2" type="double"/>
   <param name="scale_angular" value="2" type="double"/>
 
-  <rosparam command="load" file="$(find learning_tf)/turtle.yaml"/>
+  <rosparam command="load" file="$(find turtlesim_snake)/turtle.yaml"/>
   <!-- Node that spawn the turtles randomly -->
-  <node pkg="learning_tf" type="turtle_spawn" name="turtle_spawn" output = "screen"/>
+  <node pkg="turtlesim_snake" type="turtle_spawn" name="turtle_spawn" output = "screen"/>
 
   <!-- Transform broadcaster node for each turtle spawn -->
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle1" name="turtle1_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle2" name="turtle2_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle3" name="turtle3_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle4" name="turtle4_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle5" name="turtle5_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle6" name="turtle6_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle7" name="turtle7_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle8" name="turtle8_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle9" name="turtle9_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle10" name="turtle10_tf_broadcaster" />
-  <!--node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle11" name="turtle11_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle12" name="turtle12_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle13" name="turtle13_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle14" name="turtle14_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle15" name="turtle15_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle16" name="turtle16_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle17" name="turtle17_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle18" name="turtle18_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle19" name="turtle19_tf_broadcaster" />
-  <node pkg="learning_tf" type="turtle_tf_broadcaster" args="/turtle20" name="turtle20_tf_broadcaster" /-->
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle1" name="turtle1_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle2" name="turtle2_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle3" name="turtle3_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle4" name="turtle4_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle5" name="turtle5_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle6" name="turtle6_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle7" name="turtle7_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle8" name="turtle8_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle9" name="turtle9_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle10" name="turtle10_tf_broadcaster" />
+  <!--node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle11" name="turtle11_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle12" name="turtle12_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle13" name="turtle13_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle14" name="turtle14_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle15" name="turtle15_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle16" name="turtle16_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle17" name="turtle17_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle18" name="turtle18_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle19" name="turtle19_tf_broadcaster" />
+  <node pkg="turtlesim_snake" type="turtle_tf_broadcaster" args="/turtle20" name="turtle20_tf_broadcaster" /-->
 
   <!-- Transform listener node for each turtle spawn -->
-  <node pkg="learning_tf" type="snake_game" name="snake2"  respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake2"  respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle2/cmd_vel"/>
     <param name="turtle_name" value="/turtle2"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake3"  respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake3"  respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle3/cmd_vel"/>
     <param name="turtle_name" value="/turtle3"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake4"  respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake4"  respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle4/cmd_vel"/>
     <param name="turtle_name" value="/turtle4"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake5" respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake5" respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle5/cmd_vel"/>
     <param name="turtle_name" value="/turtle5"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake6" respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake6" respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle6/cmd_vel"/>
   <param name="turtle_name" value="/turtle6"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake7" respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake7" respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle7/cmd_vel"/>
     <param name="turtle_name" value="/turtle7"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake8" respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake8" respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle8/cmd_vel"/>
     <param name="turtle_name" value="/turtle8"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake9" respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake9" respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle9/cmd_vel"/>
     <param name="turtle_name" value="/turtle9"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake10" respawn="true" output = "screen">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake10" respawn="true" output = "screen">
     <remap from = "velocity_topic" to = "/turtle10/cmd_vel"/>
     <param name="turtle_name" value="/turtle10"/>
   </node>
-  <!--node pkg="learning_tf" type="snake_game" name="snake11" respawn="true"  >
+  <!--node pkg="turtlesim_snake" type="snake_game" name="snake11" respawn="true"  >
     <remap from = "velocity_topic" to = "/turtle11/cmd_vel"/>
     <param name="turtle_name" value="/turtle11"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake12" respawn="true" >
+  <node pkg="turtlesim_snake" type="snake_game" name="snake12" respawn="true" >
     <remap from = "velocity_topic" to = "/turtle12/cmd_vel"/>
     <param name="turtle_name" value="/turtle12"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake13" respawn="true" >
+  <node pkg="turtlesim_snake" type="snake_game" name="snake13" respawn="true" >
     <remap from = "velocity_topic" to = "/turtle13/cmd_vel"/>
     <param name="turtle_name" value="/turtle13"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake14" respawn="true">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake14" respawn="true">
     <remap from = "velocity_topic" to = "/turtle14/cmd_vel"/>
     <param name="turtle_name" value="/turtle14"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake15" respawn="true">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake15" respawn="true">
     <remap from = "velocity_topic" to = "/turtle15/cmd_vel"/>
     <param name="turtle_name" value="/turtle15"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake16" respawn="true">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake16" respawn="true">
     <remap from = "velocity_topic" to = "/turtle16/cmd_vel"/>
     <param name="turtle_name" value="/turtle16"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake17" respawn="true">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake17" respawn="true">
     <remap from = "velocity_topic" to = "/turtle17/cmd_vel"/>
     <param name="turtle_name" value="/turtle17"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake18" respawn="true">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake18" respawn="true">
     <remap from = "velocity_topic" to = "/turtle18/cmd_vel"/>
     <param name="turtle_name" value="/turtle18"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake19" respawn="true">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake19" respawn="true">
     <remap from = "velocity_topic" to = "/turtle19/cmd_vel"/>
     <param name="turtle_name" value="/turtle19"/>
   </node>
-  <node pkg="learning_tf" type="snake_game" name="snake20" respawn="true">
+  <node pkg="turtlesim_snake" type="snake_game" name="snake20" respawn="true">
     <remap from = "velocity_topic" to = "/turtle20/cmd_vel"/>
     <param name="turtle_name" value="/turtle20"/>
   </node-->

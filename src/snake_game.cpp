@@ -43,7 +43,7 @@ public:
 
     ~Listener(){
       /*defaultParameters();
-      std::string cmd = "bash -c \"rosparam dump -v "+ros::package::getPath("learning_tf")+"/turtle.yaml\"";
+      std::string cmd = "bash -c \"rosparam dump -v "+ros::package::getPath("turtlesim_snake")+"/turtle.yaml\"";
       system(cmd.c_str());*/
     }
 
@@ -150,7 +150,7 @@ public:
         node.setParam("/last_turtle", turtle_name);
         node.setParam("/added_turtles", ++added_turtles);
 
-        //std::string cmd = "bash -c \"rosparam dump -v "+ros::package::getPath("learning_tf")+"/turtle.yaml\"";
+        //std::string cmd = "bash -c \"rosparam dump -v "+ros::package::getPath("turtlesim_snake")+"/turtle.yaml\"";
         //system(cmd.c_str());
       }
 

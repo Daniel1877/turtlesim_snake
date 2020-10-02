@@ -2,7 +2,7 @@
 #include <tf/transform_listener.h>
 #include <geometry_msgs/Twist.h>
 #include <turtlesim/Spawn.h>
-#include "learning_tf/Turtle_pose.h"
+#include "turtlesim_snake/Turtle_pose.h"
 
 
 
@@ -29,8 +29,8 @@ public:
 
    ~Listener(){}
 
-   bool snake(learning_tf::Turtle_pose::Request  &req,
-              learning_tf::Turtle_pose::Response &res)
+   bool snake(turtlesim_snake::Turtle_pose::Request  &req,
+              turtlesim_snake::Turtle_pose::Response &res)
    {
      ros::service::waitForService("spawn");
      add_turtle = node.serviceClient<turtlesim::Spawn>("spawn");
@@ -41,7 +41,7 @@ public:
 
      tf::StampedTransform transform;
      ros::Rate rate(10.0);
-     
+
      while (node.ok()){
        tf::StampedTransform transform;
        try{
