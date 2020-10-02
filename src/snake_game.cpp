@@ -87,7 +87,7 @@ public:
     {
       node.setParam("/last_turtle", "/turtle1");
       node.setParam("/added_turtles", 0);
-      node.setParam("/level_turtles", 2);
+      node.setParam("/level_turtles", 3);
     }
 
     void colorChange()
@@ -176,7 +176,7 @@ public:
         }
 
         node.getParam("/level_turtles", level_turtles);
-        if(added_turtles == level_turtles)
+        if(added_turtles == level_turtles && added_turtles != turtle_limit)
         {
           int new_level_turtles = level_turtles + 2;
 
@@ -191,9 +191,10 @@ public:
 
         if(added_turtles == turtle_limit)
         {
-         std::string kill_action = "bash -c \"rosnode kill /teleop /turtle_spawn\"";
-         system(kill_action.c_str());
-         ROS_INFO("CONGRATULATIONS. YOU HAVE COMPLETE THE GAME");
+          defaultParameters();
+          std::string kill_action = "bash -c \"rosnode kill /teleop /turtle_spawn\"";
+          system(kill_action.c_str());
+          ROS_INFO("CONGRATULATIONS. YOU HAVE COMPLETE THE GAME");
         }
       }
     }
