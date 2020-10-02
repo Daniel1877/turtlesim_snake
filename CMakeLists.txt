@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(learning_tf)
+project(turtlesim_snake)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -23,7 +23,7 @@ generate_messages(
 
 catkin_package(
 #  INCLUDE_DIRS include
-  LIBRARIES learning_tf
+  LIBRARIES turtlesim_snake
 #  CATKIN_DEPENDS roscpp rospy tf turtlesim
 #  DEPENDS system_lib
   CATKIN_DEPENDS message_runtime
