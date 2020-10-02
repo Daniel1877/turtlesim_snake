@@ -26,7 +26,7 @@ class Listener
   ros::ServiceClient add_turtle, reset_service, clear_service, kill_service;
   std::string turtle_name, last_turtle_, next_last_turtle;
 
-  int added_turtles, level_turtles, turtle_limit;
+  int added_turtles, level_turtles, turtle_limit, turtles_spawned;
 
   ros::Time start_time_to_follow;
 
@@ -87,7 +87,7 @@ public:
     {
       node.setParam("/last_turtle", "/turtle1");
       node.setParam("/added_turtles", 0);
-      node.setParam("/level_turtles", 3);
+      node.setParam("level_turtles", 3);
     }
 
     void colorChange()
@@ -107,7 +107,6 @@ public:
     void resetGame()
     {
       reset_service = node.serviceClient<std_srvs::Empty>("reset");
-      int turtles_spawned;
       node.getParam("/turtles_spawned", turtles_spawned);
 
       reset_service.call(reset_srv);
@@ -134,7 +133,6 @@ public:
     {
       tf::StampedTransform transform, transform2;
       turtleTransform(turtle_name, "/turtle1", transform);
-
       float d = turtleDistance(transform);
       if(d == 0) return;
 
@@ -167,16 +165,17 @@ public:
           turtleVelocity(d2, transform2);
         }
 
-        if (d < 0.5 && (ros::Time::now()-start_time_to_follow).toSec()>5)
+        if (d < 0.5 && (ros::Time::now()-start_time_to_follow).toSec()>3)
         {
+          defaultParameters();
+
           ROS_INFO("COLISION. YOU HAVE LOST. RESTARTING THE GAME...");
 
-          defaultParameters();
           resetGame();
         }
 
         node.getParam("/level_turtles", level_turtles);
-        if(added_turtles == level_turtles && added_turtles != turtle_limit)
+        if(added_turtles == level_turtles && added_turtles < turtle_limit)
         {
           int new_level_turtles = level_turtles + 2;
 
@@ -195,6 +194,16 @@ public:
           std::string kill_action = "bash -c \"rosnode kill /teleop /turtle_spawn\"";
           system(kill_action.c_str());
           ROS_INFO("CONGRATULATIONS. YOU HAVE COMPLETE THE GAME");
+
+          node.getParam("/turtles_spawned", turtles_spawned);
+          kill_service = node.serviceClient<turtlesim::Kill>("kill");
+
+          for(int i = 1; i <= turtles_spawned; i++)
+          {
+            std::string number = std::to_string(i+1);
+            kill_srv.request.name = "turtle"+number;
+            kill_service.call(kill_srv);
+          }
         }
       }
     }
