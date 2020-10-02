@@ -1,5 +1,5 @@
 added_turtles: 0
 last_turtle: /turtle1
-level_turtles: 3
-turtle_limit: 5
+level_turtles: 6
+turtle_limit: 10
 turtles_spawned: 0
